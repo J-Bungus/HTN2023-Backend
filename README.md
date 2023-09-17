@@ -22,11 +22,14 @@ This is the registration endpoint for the game
 
 **Response Format (200 OK):**
 ```python
+# Example 1: Registration is successful
 {
     "data": None,
     "message": "Registration successful",
     "status": 0
 }
+
+# Example 2: Registration is unsuccessful
 {
     "data": None,
     "message": "Username already exists",
@@ -49,12 +52,14 @@ This is the login endpoint for the game.
 
 **Response Format (200 OK):**
 ```python
+# Example 1: Login is successful
 {
     "data": [<id>, <username>, <hashed password>, <coins>],
     "message": "Login successful",
     "status": 0
 }
 
+# Example 2: One of the login failures
 {
     "data": None,
     "message": "User does not exist"

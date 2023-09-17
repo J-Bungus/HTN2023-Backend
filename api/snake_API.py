@@ -14,9 +14,10 @@ ret = {
     "message": "",
     "data": None
 }
+
 @app.route('/', methods=['GET'])
 def index():
-    return jsonify(ret)
+    return ret
 
 @app.route('/login', methods=['POST'])
 def login():

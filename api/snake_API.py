@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 import bcrypt
-from .db_functions import *
+from db_functions import *
 from flask import request
 
 # Connect to the database

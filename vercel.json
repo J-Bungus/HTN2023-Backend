@@ -1,0 +1,14 @@
+{
+    "builds": [
+        {
+            "src": "api/snake_API.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "api/snake_API.py"
+        }
+    ]
+}

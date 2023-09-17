@@ -303,3 +303,6 @@ def check_ownership():
     ret["data"] = owned
 
     return ret
+
+if (__name__ == '__main__'):
+    app.run()

@@ -101,9 +101,10 @@ def register():
         ret["message"] = "Username already exists"
         ret["data"] = None
         return ret
-    
+    print(password)
     # Add salt
     salt = bcrypt.gensalt()
+    print(salt)
     hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
 
     cursor.execute("""

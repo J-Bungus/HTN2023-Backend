@@ -303,4 +303,3 @@ def check_ownership():
     ret["data"] = owned
 
     return ret
-app.run()

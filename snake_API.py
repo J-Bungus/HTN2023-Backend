@@ -14,6 +14,9 @@ ret = {
     "message": "",
     "data": None
 }
+@app.route('/', methods=['GET'])
+def index():
+    return jsonify(ret)
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -299,5 +302,3 @@ def check_ownership():
     ret["data"] = owned
 
     return ret
-
-app.run(debug=False)

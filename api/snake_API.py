@@ -60,7 +60,7 @@ def login():
         WHERE UserName = %s;
         """, (username,))
     
-    fetched_password = cursor.fetchone()[0]
+    fetched_password = cursor.fetchone()
 
     if fetched_password is None:
         print("Entered")
@@ -68,8 +68,8 @@ def login():
         ret["message"] = "User does not exist"
         ret["data"] = None
 
-    fetched_password = fetched_password.encode('utf-8')
-    
+    fetched_password = fetched_password[0].encode('utf-8')
+
     if bcrypt.hashpw(password.encode('utf-8'), fetched_password) == fetched_password:
         ret["status"] = 0
         ret["message"] = "Login successful"

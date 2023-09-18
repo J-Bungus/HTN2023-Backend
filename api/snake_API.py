@@ -67,24 +67,24 @@ def login():
         ret["status"] = 1
         ret["message"] = "User does not exist"
         ret["data"] = None
-
-    fetched_password = fetched_password[0].encode('utf-8')
-
-    if bcrypt.hashpw(password.encode('utf-8'), fetched_password) == fetched_password:
-        ret["status"] = 0
-        ret["message"] = "Login successful"
-        cursor.execute("""
-            SELECT * FROM "Users"
-            WHERE UserName = %s;
-            """, (username,))
-        
-        ret["data"] = cursor.fetchone()
-
     else:
-        ret["status"] = 1
-        ret["message"] = "Incorrect password"
-        ret["data"] = None
-    
+        fetched_password = fetched_password[0].encode('utf-8')
+
+        if bcrypt.hashpw(password.encode('utf-8'), fetched_password) == fetched_password:
+            ret["status"] = 0
+            ret["message"] = "Login successful"
+            cursor.execute("""
+                SELECT * FROM "Users"
+                WHERE UserName = %s;
+                """, (username,))
+            
+            ret["data"] = cursor.fetchone()
+
+        else:
+            ret["status"] = 1
+            ret["message"] = "Incorrect password"
+            ret["data"] = None
+        
     return ret
 
 @app.route('/register', methods=['POST'])
